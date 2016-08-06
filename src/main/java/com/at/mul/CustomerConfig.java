@@ -30,7 +30,7 @@ public class CustomerConfig {
 	private CustomerDatasourceProperties customerDatasourceProperties;
 
 	@Bean(name = "customerDataSource", initMethod = "init", destroyMethod = "close")
-	@Primiry
+	@Primary
 	public DataSource customerDataSource() {
 		JdbcDataSource h2XaDataSource = new JdbcDataSource();
 		h2XaDataSource.setURL(customerDatasourceProperties.getUrl());
@@ -43,7 +43,7 @@ public class CustomerConfig {
 
 	@Bean(name = "customerEntityManager")
 	@DependsOn("transactionManager")
-	@Primiry
+	@Primary
 	public LocalContainerEntityManagerFactoryBean customerEntityManager() throws Throwable {
 
 		HashMap<String, Object> properties = new HashMap<String, Object>();
